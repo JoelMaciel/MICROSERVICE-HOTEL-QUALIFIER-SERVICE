@@ -1,0 +1,15 @@
+server:
+  port: 8083
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: qualifierdb
+
+logging:
+  level:
+    com.joelmaciel.qualifier_service: TRACE
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate: INFO
