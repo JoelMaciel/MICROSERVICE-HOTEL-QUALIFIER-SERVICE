@@ -2,8 +2,6 @@ package com.qualifier_service.domain.services;
 
 import com.qualifier_service.api.dtos.response.QualifierDTO;
 import com.qualifier_service.domain.entities.Qualifier;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 

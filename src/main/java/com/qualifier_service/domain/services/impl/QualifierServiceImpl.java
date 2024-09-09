@@ -6,8 +6,6 @@ import com.qualifier_service.domain.entities.Qualifier;
 import com.qualifier_service.domain.repositories.QualifierRepository;
 import com.qualifier_service.domain.services.QualifierService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
