@@ -4,12 +4,10 @@ import com.qualifier_service.api.dtos.response.QualifierDTO;
 import com.qualifier_service.domain.entities.Qualifier;
 import com.qualifier_service.domain.services.QualifierService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -25,23 +23,17 @@ public class QualifierController {
     }
 
     @GetMapping
-    public Page<QualifierDTO> getAll(
-            @PageableDefault(page = 0, size = 10, sort = "hotelId", direction = Sort.Direction.ASC) Pageable pageable
-    ) {
-        return qualifierService.getAll(pageable);
+    public List<QualifierDTO> getAll() {
+        return qualifierService.getAll();
     }
 
     @GetMapping("/users/{userId}")
-    public Page<QualifierDTO> getAllByUserId(
-            @PathVariable String userId,
-            @PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable) {
-        return qualifierService.getQualifierByUserId(userId, pageable);
+    public List<QualifierDTO> getAllByUserId(@PathVariable String userId) {
+        return qualifierService.getQualifierByUserId(userId);
     }
 
     @GetMapping("/hotels/{hotelId}")
-    public Page<QualifierDTO> getAllByHotelId(
-            @PathVariable String hotelId,
-            @PageableDefault(page = 0, size = 10, sort = "hotelId", direction = Sort.Direction.ASC) Pageable pageable) {
-        return qualifierService.getQualifierByHotelId(hotelId, pageable);
+    public List<QualifierDTO> getAllByHotelId(@PathVariable String hotelId) {
+        return qualifierService.getQualifierByHotelId(hotelId);
     }
 }

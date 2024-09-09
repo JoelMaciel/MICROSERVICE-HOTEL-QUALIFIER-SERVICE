@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -28,20 +29,20 @@ public class QualifierServiceImpl implements QualifierService {
     }
 
     @Override
-    public Page<QualifierDTO> getAll(Pageable pageable) {
-        Page<Qualifier> qualifierPage = qualifierRepository.findAll(pageable);
-        return qualifierConverter.toQualifierDTOPage(qualifierPage);
+    public List<QualifierDTO> getAll() {
+        List<Qualifier> qualifierList = qualifierRepository.findAll();
+        return qualifierConverter.toQualifierDTOPage(qualifierList);
     }
 
     @Override
-    public Page<QualifierDTO> getQualifierByUserId(String userId, Pageable pageable) {
-        Page<Qualifier> qualifierPage = qualifierRepository.findByUserId(userId, pageable);
-        return qualifierConverter.toQualifierDTOPage(qualifierPage);
+    public List<QualifierDTO> getQualifierByUserId(String userId) {
+        List<Qualifier> qualifierList = qualifierRepository.findByUserId(userId);
+        return qualifierConverter.toQualifierDTOPage(qualifierList);
     }
 
     @Override
-    public Page<QualifierDTO> getQualifierByHotelId(String hotelId, Pageable pageable) {
-        Page<Qualifier> qualifierPage = qualifierRepository.findByHotelId(hotelId, pageable);
-        return qualifierConverter.toQualifierDTOPage(qualifierPage);
+    public List<QualifierDTO> getQualifierByHotelId(String hotelId) {
+        List<Qualifier> qualifierList = qualifierRepository.findByHotelId(hotelId);
+        return qualifierConverter.toQualifierDTOPage(qualifierList);
     }
 }
