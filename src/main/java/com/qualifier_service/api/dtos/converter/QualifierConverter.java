@@ -5,15 +5,18 @@ import com.qualifier_service.domain.entities.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class QualifierConverter {
 
     private QualifierConverter() {
     }
 
-    public Page<QualifierDTO> toQualifierDTOPage(Page<Qualifier> qualifierPage) {
-        return qualifierPage
-                .map(this::toDTO);
+    public List<QualifierDTO> toQualifierDTOPage(List<Qualifier> qualifierList) {
+        return qualifierList.stream()
+                .map(this::toDTO)
+                .toList();
     }
 
     public QualifierDTO toDTO(Qualifier qualifier) {

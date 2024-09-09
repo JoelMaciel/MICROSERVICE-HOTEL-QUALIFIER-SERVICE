@@ -5,14 +5,16 @@ import com.qualifier_service.domain.entities.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface QualifierService {
 
     QualifierDTO saveQualifier(Qualifier qualifier);
 
-    Page<QualifierDTO> getAll(Pageable pageable);
+    List<QualifierDTO> getAll();
 
-    Page<QualifierDTO> getQualifierByUserId(String userId, Pageable pageable);
+    List<QualifierDTO> getQualifierByUserId(String userId);
 
-    Page<QualifierDTO> getQualifierByHotelId(String hotelId, Pageable pageable);
+    List<QualifierDTO> getQualifierByHotelId(String hotelId);
 
 }
