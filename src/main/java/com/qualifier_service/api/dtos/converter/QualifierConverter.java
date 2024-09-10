@@ -2,7 +2,6 @@ package com.qualifier_service.api.dtos.converter;
 
 import com.qualifier_service.api.dtos.response.QualifierDTO;
 import com.qualifier_service.domain.entities.Qualifier;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
